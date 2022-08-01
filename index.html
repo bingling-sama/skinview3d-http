@@ -42,11 +42,9 @@
       skinViewer.background = 0xffffff
       skinViewer.render()
       const image = skinViewer.canvas.toDataURL()
-      const imgElement = document.createElement("img")
-      imgElement.src = image
-      imgElement.width = skinViewer.width
-      imgElement.height = skinViewer.height
-      document.getElementById("container").appendChild(imgElement)
+      const e = document.createElement("span")
+      e.textContent = image.split(';base64,')[1]
+      document.getElementById("container").appendChild(e)
       skinViewer.dispose()
     })()
   </script>
