@@ -43,8 +43,12 @@
       skinViewer.render()
       const image = skinViewer.canvas.toDataURL()
       const e = document.createElement("span")
+      const img = document.createElement("img")
       e.textContent = image.split(';base64,')[1]
-      document.getElementById("container").appendChild(e)
+      img.src = image
+      img.width = skinViewer.width
+      img.height = skinViewer.height
+      document.getElementById("container").appendChild(e).appendChild(img)
       skinViewer.dispose()
     })()
   </script>
